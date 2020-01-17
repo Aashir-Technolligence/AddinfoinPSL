@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id='@+id/addplayer'
+        android:title="AddPlayer" />
+    <item
+        android:id="@+id/playerlist"
+        android:title="PlayerList"
+       />
+    <!--<item-->
+        <!--android:id="@+id/nav_report"-->
+        <!--android:title="View report"-->
+        <!--android:icon="@drawable/ic_filter_none_black_24dp" />-->
+    <item
+        android:id="@+id/addschedule"
+        android:title="AddSchedule"/>
+    <item
+        android:id="@+id/schedulelist"
+        android:title="SechduleList" />
+
+
+</menu>

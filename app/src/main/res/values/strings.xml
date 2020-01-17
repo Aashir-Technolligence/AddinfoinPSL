@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Add info in PSL</string>
+    <string-array name="type">
+        <item>Batsman</item>
+        <item>Bowler</item>
+        <item>All Rounder</item>
+    </string-array>
+    <string-array name="hand">
+        <item>Left Hand</item>
+        <item>Right Hand</item>
+    </string-array>
+    <string-array name="team">
+        <item>Lahore Qalandars</item>
+        <item>Karachi Kings</item>
+        <item>Islamabad United</item>
+        <item>Quetta Gladiators</item>
+        <item>Multan Sultan</item>
+        <item>Peshawar Zalmi</item>
+    </string-array>
+</resources>
