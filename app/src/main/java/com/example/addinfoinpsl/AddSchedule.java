@@ -40,7 +40,7 @@ public class AddSchedule extends BaseActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_add_schedule);
         pd = new ProgressDialog(this);
-        pd.setMessage("Adding Player..... ");
+        pd.setMessage("Adding Schedule..... ");
         reference = FirebaseDatabase.getInstance().getReference();
         team1Spinner = findViewById(R.id.spinnerTeam1);
         team2Spinner = findViewById(R.id.spinnerTeam2);

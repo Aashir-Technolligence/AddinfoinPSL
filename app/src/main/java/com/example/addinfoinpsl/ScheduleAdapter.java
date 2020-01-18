@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                 }
             }
         });
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(activity , UpdateSchedule.class);
+                i.putExtra("id" , id);
+                activity.startActivity(i);
+            }
+        });
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,12 +95,13 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
+        ImageView img,edit;
         TextView team1, team2, live;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = (ImageView) itemView.findViewById(R.id.imgDelete);
+            edit = (ImageView) itemView.findViewById(R.id.imgEdit);
             team1 = (TextView) itemView.findViewById(R.id.txtTeam1);
             team2 = (TextView) itemView.findViewById(R.id.txtTeam2);
             live = (TextView) itemView.findViewById(R.id.txtLive);
