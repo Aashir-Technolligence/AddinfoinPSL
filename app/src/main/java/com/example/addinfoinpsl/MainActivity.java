@@ -35,7 +35,7 @@ import java.io.IOException;
 
 public class MainActivity extends BaseActivity {
     ImageView profile;
-    EditText name, age, inning, totalScore, strike, bestScore, averageScore, thirty, fifty, hundred, tWicket, cWicket, bestBowlScore, bestBowlWicket;
+    EditText name, age, inning,currentPslScore, totalScore, strike, bestScore, averageScore, thirty, fifty, hundred, tWicket, cWicket, bestBowlScore, bestBowlWicket;
     private Uri filePath;
     private Button addPlayer;
     Spinner teamSpinner, typeSpinner, handSpinner;
@@ -44,7 +44,6 @@ public class MainActivity extends BaseActivity {
     ProgressDialog pd;
     StorageReference StorageRef;
     DatabaseReference reference;
-    long i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +63,7 @@ public class MainActivity extends BaseActivity {
         bestBowlScore = (EditText) findViewById(R.id.edtBScore);
         bestBowlWicket = (EditText) findViewById(R.id.edtBWicket);
         totalScore = (EditText) findViewById(R.id.edtTotalScore);
+        currentPslScore = (EditText) findViewById(R.id.edtCurrentPSLScore);
         addPlayer = (Button) findViewById(R.id.btnAddPlayer);
         teamSpinner = findViewById(R.id.spinnerTeam);
         typeSpinner = findViewById(R.id.spinnerType);
@@ -116,25 +116,8 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 if (!name.getText().toString().isEmpty() && !age.getText().toString().isEmpty()) {
                     if (count == 1) {
-                        reference.child("Players").child(team).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if (dataSnapshot.exists()) {
-                                    i = dataSnapshot.getChildrenCount();
-                                    Toast.makeText(getApplicationContext(), String.valueOf(i), Toast.LENGTH_LONG).show();
-                                } else {
-                                    i = 0;
-                                    Toast.makeText(getApplicationContext(), String.valueOf(i), Toast.LENGTH_LONG).show();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
                         pd.show();
-                        final String push = String.valueOf(i);//FirebaseDatabase.getInstance().getReference().child("Players").push().getKey();
+                        final String push = FirebaseDatabase.getInstance().getReference().child("Players").push().getKey();
                         StorageReference fileReference = StorageRef.child("images/players/" + push);
                         fileReference.putFile(filePath)
                                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -172,6 +155,10 @@ public class MainActivity extends BaseActivity {
                                                 addPlayerAttr.setAvgScore("0");
                                             } else
                                                 addPlayerAttr.setAvgScore(averageScore.getText().toString());
+                                            if (currentPslScore.getText().toString().isEmpty()) {
+                                                addPlayerAttr.setCurrentPSLScore(0);
+                                            } else
+                                                addPlayerAttr.setCurrentPSLScore(Integer.parseInt(currentPslScore.getText().toString()));
 
                                             if (thirty.getText().toString().isEmpty()) {
                                                 addPlayerAttr.setThirty(0);
@@ -216,21 +203,21 @@ public class MainActivity extends BaseActivity {
                                             reference.child("Players").child(team).child(push)
                                                     .setValue(addPlayerAttr);
                                             if (!type.equals("Bowler")) {
-                                                reference.child("Runs").child(name.getText().toString()).child("name").setValue(name.getText().toString());
-                                                reference.child("Runs").child(name.getText().toString()).child("team").setValue(team);
-                                                if (totalScore.getText().toString().isEmpty()) {
-                                                    reference.child("Runs").child(name.getText().toString()).child("score").setValue(0);
+                                                reference.child("Runs").child(push).child("name").setValue(name.getText().toString());
+                                                reference.child("Runs").child(push).child("team").setValue(team);
+                                                if (currentPslScore.getText().toString().isEmpty()) {
+                                                    reference.child("Runs").child(push).child("score").setValue(0);
                                                 } else
-                                                    reference.child("Runs").child(name.getText().toString()).child("score").setValue(Integer.valueOf(totalScore.getText().toString()));
+                                                    reference.child("Runs").child(push).child("score").setValue(Integer.valueOf(currentPslScore.getText().toString()));
 
                                             }
                                             if (!type.equals("Batsman")) {
-                                                reference.child("Wickets").child(name.getText().toString()).child("name").setValue(name.getText().toString());
-                                                reference.child("Wickets").child(name.getText().toString()).child("team").setValue(team);
+                                                reference.child("Wickets").child(push).child("name").setValue(name.getText().toString());
+                                                reference.child("Wickets").child(push).child("team").setValue(team);
                                                 if (cWicket.getText().toString().isEmpty()) {
-                                                    reference.child("Wickets").child(name.getText().toString()).child("wickets").setValue(0);
+                                                    reference.child("Wickets").child(push).child("wickets").setValue(0);
                                                 } else
-                                                    reference.child("Wickets").child(name.getText().toString()).child("wickets").setValue(Integer.parseInt(cWicket.getText().toString()));
+                                                    reference.child("Wickets").child(push).child("wickets").setValue(Integer.parseInt(cWicket.getText().toString()));
 
                                             }
                                             pd.dismiss();

@@ -127,8 +127,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edtTotalScore"
                 android:inputType="number"
-                android:maxLength="3"
+                android:maxLength="4"
                 android:hint="Total Score"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edtCurrentPSLScore"
+                android:inputType="number"
+                android:maxLength="4"
+                android:hint="Current PSL Score"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

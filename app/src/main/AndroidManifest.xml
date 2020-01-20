@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateSchedule"></activity>
+        <activity android:name=".PointsTable"></activity>
+        <activity android:name=".UpdatePlayer" />
+        <activity android:name=".UpdateSchedule" />
         <activity android:name=".ScheduleList" />
         <activity android:name=".PlayersList" />
-        <activity android:name=".AddSchedule"></activity>
+        <activity android:name=".AddSchedule" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

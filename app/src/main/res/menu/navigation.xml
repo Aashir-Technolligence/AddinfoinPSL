@@ -18,6 +18,9 @@
     <item
         android:id="@+id/schedulelist"
         android:title="SechduleList" />
+    <item
+        android:id="@+id/pointsTable"
+        android:title="Points" />
 
 
 </menu>

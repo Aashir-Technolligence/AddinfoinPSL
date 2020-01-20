@@ -53,7 +53,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
             startActivity(new Intent(this, ScheduleList.class));
             finish();
         }
-
+        else if (itemId == R.id.pointsTable) {
+            startActivity(new Intent(this, PointsTable.class));
+            finish();
+        }
 
         return true;
     }

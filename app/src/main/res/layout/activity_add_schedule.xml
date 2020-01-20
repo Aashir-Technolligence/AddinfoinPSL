@@ -4,61 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddSchedule"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".AddSchedule">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginBottom="80dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        >
+        android:layout_marginBottom="80dp"
+        android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/spinnerTeam1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:entries="@array/team"
-            android:layout_weight="1"/>
-        <Spinner
-            android:id="@+id/spinnerTeam2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Spinner
+                android:id="@+id/spinnerTeam1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/team" />
+
+            <Spinner
+                android:id="@+id/spinnerTeam2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/team" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:entries="@array/team"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:layout_marginLeft="10sp"
+                android:text="Location" />
+
+            <Spinner
+                android:id="@+id/spinnerLocation"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/city" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="00:00"
+            android:inputType="time"
+            android:maxLength="5" />
+
+        <CalendarView
+            android:id="@+id/calender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnAddSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add schedule" />
     </LinearLayout>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtTime"
-        android:maxLength="5"
-        android:inputType="time"
-        android:hint="00:00"/>
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/calender"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add schedule"
-        android:id="@+id/btnAddSchedule"/>
-    </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:layout_marginStart="0dp"
-        app:labelVisibilityMode="labeled"
         android:layout_marginEnd="0dp"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/navigation"/>
+        app:menu="@menu/navigation" />
 </RelativeLayout>

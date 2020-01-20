@@ -40,7 +40,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         holder.team1.setText(scheduleAttrs.get(position).getTeamOne());
         holder.team2.setText(scheduleAttrs.get(position).getTeamTwo());
         holder.live.setText(scheduleAttrs.get(position).getStatus());
-        final String id = scheduleAttrs.get(position).getId();
+        final String id = scheduleAttrs.get(position).getId().toString();
         final String status = scheduleAttrs.get(position).getStatus();
         holder.live.setOnClickListener(new View.OnClickListener() {
             @Override

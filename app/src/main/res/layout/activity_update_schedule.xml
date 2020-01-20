@@ -31,6 +31,28 @@
                 android:layout_weight="1"
                 android:entries="@array/team"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:layout_marginLeft="10sp"
+                android:text="Location" />
+
+            <Spinner
+                android:id="@+id/spinnerLocation"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/city" />
+        </LinearLayout>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +26,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class AddSchedule extends BaseActivity {
-    Spinner team1Spinner, team2Spinner;
-    String team1, team2;
+    Spinner team1Spinner, team2Spinner , citySpinner;
+    String team1, team2 ,city;
     ProgressDialog pd;
     CalendarView calendarView;
     EditText time;
@@ -44,6 +45,7 @@ public class AddSchedule extends BaseActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         team1Spinner = findViewById(R.id.spinnerTeam1);
         team2Spinner = findViewById(R.id.spinnerTeam2);
+        citySpinner = findViewById(R.id.spinnerLocation);
         time = findViewById(R.id.edtTime);
         calendarView = findViewById(R.id.calender);
         addSchedule = findViewById(R.id.btnAddSchedule);
@@ -77,6 +79,16 @@ public class AddSchedule extends BaseActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                city = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,37 +99,45 @@ public class AddSchedule extends BaseActivity {
                 else {
                     if (!time.getText().toString().isEmpty() && !curDate.equals("")) {
                         pd.show();
+                        final String push = FirebaseDatabase.getInstance().getReference().child("Schedule").push().getKey();
                         reference.child("Schedule").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 if (dataSnapshot.exists()) {
                                     i = dataSnapshot.getChildrenCount();
                                     ScheduleAttr addSchedule1 = new ScheduleAttr();
-                                    addSchedule1.setId(String.valueOf(i));
+                                    addSchedule1.setSid(Integer.parseInt(String.valueOf(i)));
+                                    addSchedule1.setId(push);
                                     addSchedule1.setTeamOne(team1);
                                     addSchedule1.setTeamTwo(team2);
                                     addSchedule1.setTime(time.getText().toString());
                                     addSchedule1.setDate(curDate);
+                                    addSchedule1.setCity(city);
                                     addSchedule1.setStatus("Not Live");
+                                    addSchedule1.setWinner("Upcoming");
 
-                                    reference.child("Schedule").child(String.valueOf(i)).setValue(addSchedule1);
+                                    reference.child("Schedule").child(push).setValue(addSchedule1);
                                     Toast.makeText(getApplicationContext(),"Schedule created.", Toast.LENGTH_LONG).show();
                                     pd.dismiss();
                                     recreate();
+                                    startActivity(new Intent(AddSchedule.this , ScheduleList.class));
                                 } else {
                                     i = 0;
                                     ScheduleAttr addSchedule1 = new ScheduleAttr();
-                                    addSchedule1.setId(String.valueOf(i));
+                                    addSchedule1.setSid(Integer.parseInt(String.valueOf(i)));
+                                    addSchedule1.setId(push);
                                     addSchedule1.setTeamOne(team1);
                                     addSchedule1.setTeamTwo(team2);
                                     addSchedule1.setTime(time.getText().toString());
                                     addSchedule1.setDate(curDate);
                                     addSchedule1.setStatus("Not Live");
+                                    addSchedule1.setCity(city);
 
-                                    reference.child("Schedule").child(String.valueOf(i)).setValue(addSchedule1);
+                                    reference.child("Schedule").child(push).setValue(addSchedule1);
                                     Toast.makeText(getApplicationContext(),"Schedule created.", Toast.LENGTH_LONG).show();
                                     pd.dismiss();
                                     recreate();
+                                    startActivity(new Intent(AddSchedule.this , ScheduleList.class));
                                 }
 
                             }

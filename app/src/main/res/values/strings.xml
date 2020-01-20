@@ -17,4 +17,10 @@
         <item>Multan Sultan</item>
         <item>Peshawar Zalmi</item>
     </string-array>
+    <string-array name="city">
+        <item>Lahore</item>
+        <item>Karachi</item>
+        <item>Multan</item>
+        <item>Rawalpindi</item>
+    </string-array>
 </resources>

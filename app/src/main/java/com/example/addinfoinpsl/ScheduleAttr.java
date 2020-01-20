@@ -3,21 +3,27 @@ package com.example.addinfoinpsl;
 public class ScheduleAttr {
     String teamOne;
     String teamTwo;
+    Integer sid;
     String id;
     String time;
     String date;
     String status;
+    String city;
+    String winner;
 
     public ScheduleAttr() {
     }
 
-    public ScheduleAttr(String teamOne, String teamTwo, String id, String time, String date, String status) {
+    public ScheduleAttr(String teamOne, String teamTwo, Integer sid, String id, String time, String date, String status, String city, String winner) {
         this.teamOne = teamOne;
         this.teamTwo = teamTwo;
+        this.sid = sid;
         this.id = id;
         this.time = time;
         this.date = date;
         this.status = status;
+        this.city = city;
+        this.winner = winner;
     }
 
     public String getTeamOne() {
@@ -44,6 +50,14 @@ public class ScheduleAttr {
         this.teamTwo = teamTwo;
     }
 
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+
     public String getId() {
         return id;
     }
@@ -66,5 +80,21 @@ public class ScheduleAttr {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getWinner() {
+        return winner;
+    }
+
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 }

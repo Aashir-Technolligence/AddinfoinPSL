@@ -21,8 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class UpdateSchedule extends BaseActivity {
-    Spinner team1Spinner, team2Spinner;
-    String team1, team2;
+    Spinner team1Spinner, team2Spinner, citySpinner;
+    String team1, team2,city;
     ProgressDialog pd;
     CalendarView calendarView;
     EditText time;
@@ -42,6 +42,7 @@ public class UpdateSchedule extends BaseActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         team1Spinner = findViewById(R.id.spinnerTeam1);
         team2Spinner = findViewById(R.id.spinnerTeam2);
+        citySpinner = findViewById(R.id.spinnerLocation);
         time = findViewById(R.id.edtTime);
         calendarView = findViewById(R.id.calender);
         addSchedule = findViewById(R.id.btnAddSchedule);
@@ -75,6 +76,15 @@ public class UpdateSchedule extends BaseActivity {
                     team2Spinner.setSelection(4);
                 if (dataSnapshot.child("teamTwo").getValue().toString().equals("Peshawar Zalmi"))
                     team2Spinner.setSelection(5);
+
+                if (dataSnapshot.child("city").getValue().toString().equals("Lahore"))
+                    citySpinner.setSelection(0);
+                if (dataSnapshot.child("city").getValue().toString().equals("Karachi"))
+                    citySpinner.setSelection(1);
+                if (dataSnapshot.child("city").getValue().toString().equals("Multan"))
+                    citySpinner.setSelection(2);
+                if (dataSnapshot.child("city").getValue().toString().equals("Rawalpindi"))
+                    citySpinner.setSelection(3);
 
             }
 
@@ -112,6 +122,16 @@ public class UpdateSchedule extends BaseActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                city = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
         Toast.makeText(getApplicationContext(), team1, Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(), team2, Toast.LENGTH_LONG).show();
         addSchedule.setOnClickListener(new View.OnClickListener() {
@@ -122,15 +142,12 @@ public class UpdateSchedule extends BaseActivity {
                 } else {
                     if (!time.getText().toString().isEmpty() && !curDate.equals("")) {
                         pd.show();
-                        ScheduleAttr addSchedule1 = new ScheduleAttr();
-                        addSchedule1.setId(id);
-                        addSchedule1.setTeamOne(team1);
-                        addSchedule1.setTeamTwo(team2);
-                        addSchedule1.setTime(time.getText().toString());
-                        addSchedule1.setDate(curDate);
-                        addSchedule1.setStatus("Not Live");
 
-                        reference.child("Schedule").child(id).setValue(addSchedule1);
+                        reference.child("Schedule").child(id).child("teamOne").setValue(team1);
+                        reference.child("Schedule").child(id).child("teamTwo").setValue(team2);
+                        reference.child("Schedule").child(id).child("time").setValue(time.getText().toString());
+                        reference.child("Schedule").child(id).child("date").setValue(curDate);
+                        reference.child("Schedule").child(id).child("city").setValue(city);
                         Toast.makeText(getApplicationContext(), "Schedule updated.", Toast.LENGTH_LONG).show();
                         pd.dismiss();
                         startActivity(new Intent(UpdateSchedule.this, ScheduleList.class));

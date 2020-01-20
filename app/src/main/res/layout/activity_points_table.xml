@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PointsTable">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:text=" " />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="Total"
+                android:textColor="#FFF"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="Win"
+                android:textColor="#FFF"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="Lose"
+                android:textColor="#FFF"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="Draw"
+                android:textColor="#FFF"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="Points"
+                android:textColor="#FFF"
+                android:textSize="15dp"  />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="NRR"
+                android:textColor="#FFF"
+                android:textSize="15dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="25dp"
+                android:text="Quetta Gladiators" />
+
+            <EditText
+                android:id="@+id/edt1"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt2"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt3"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt4"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt5"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/edt6"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="6"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="25dp"
+                android:text="Peshawar Zalmi" />
+
+            <EditText
+                android:id="@+id/edt7"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt8"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt9"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt10"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt11"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/edt12"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="6"
+                android:textSize="30dp" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="25dp"
+                android:text="Islamabad United" />
+
+            <EditText
+                android:id="@+id/edt13"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt14"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt15"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt16"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt17"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/edt18"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="6"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="25dp"
+                android:text="Lahore Qalandars" />
+
+            <EditText
+                android:id="@+id/edt19"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt20"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt21"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt22"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt23"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/edt24"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="6"
+                android:textSize="30dp" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="25dp"
+                android:text="Karachi Kings" />
+
+            <EditText
+                android:id="@+id/edt25"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt26"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt27"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt28"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt29"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/edt30"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="6"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="30dp"
+                android:text="Multan Sultan" />
+
+            <EditText
+                android:id="@+id/edt31"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt32"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt33"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt34"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+
+            <EditText
+                android:id="@+id/edt35"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/edt36"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="6"
+                android:textSize="30dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navigationView"
+        android:layout_marginBottom="33dp"
+        android:text="Update" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        app:labelVisibilityMode="labeled"
+        android:layout_marginEnd="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation"/>
+</RelativeLayout>

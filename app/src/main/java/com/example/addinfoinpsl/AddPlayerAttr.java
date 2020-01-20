@@ -15,6 +15,7 @@ public class AddPlayerAttr {
     private String Innings;
     private Integer BestScore;
     private Integer TotalScore;
+    private Integer CurrentPSLScore;
     private String AvgScore;
     private String Strike;
     private Integer Thirty;
@@ -28,7 +29,7 @@ public class AddPlayerAttr {
     public AddPlayerAttr() {
     }
 
-    public AddPlayerAttr(String id, String image_url, String name, String age, String team, String type, String hand, String innings, Integer bestScore, Integer totalScore, String avgScore, String strike, Integer thirty, Integer fifty, Integer hundred, Integer bestBScore, Integer bestBWicket, Integer TWickets, Integer CWickets) {
+    public AddPlayerAttr(String id, String image_url, String name, String age, String team, String type, String hand, String innings, Integer bestScore, Integer totalScore, Integer currentPSLScore, String avgScore, String strike, Integer thirty, Integer fifty, Integer hundred, Integer bestBScore, Integer bestBWicket, Integer TWickets, Integer CWickets) {
         this.id = id;
         Image_url = image_url;
         Name = name;
@@ -39,6 +40,7 @@ public class AddPlayerAttr {
         Innings = innings;
         BestScore = bestScore;
         TotalScore = totalScore;
+        CurrentPSLScore = currentPSLScore;
         AvgScore = avgScore;
         Strike = strike;
         Thirty = thirty;
@@ -48,6 +50,14 @@ public class AddPlayerAttr {
         BestBWicket = bestBWicket;
         this.TWickets = TWickets;
         this.CWickets = CWickets;
+    }
+
+    public Integer getCurrentPSLScore() {
+        return CurrentPSLScore;
+    }
+
+    public void setCurrentPSLScore(Integer currentPSLScore) {
+        CurrentPSLScore = currentPSLScore;
     }
 
     public Integer getTotalScore() {
