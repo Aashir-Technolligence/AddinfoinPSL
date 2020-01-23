@@ -148,6 +148,7 @@ public class UpdateSchedule extends BaseActivity {
                         reference.child("Schedule").child(id).child("time").setValue(time.getText().toString());
                         reference.child("Schedule").child(id).child("date").setValue(curDate);
                         reference.child("Schedule").child(id).child("city").setValue(city);
+
                         Toast.makeText(getApplicationContext(), "Schedule updated.", Toast.LENGTH_LONG).show();
                         pd.dismiss();
                         startActivity(new Intent(UpdateSchedule.this, ScheduleList.class));

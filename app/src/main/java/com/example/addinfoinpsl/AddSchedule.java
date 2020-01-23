@@ -119,8 +119,8 @@ public class AddSchedule extends BaseActivity {
                                     reference.child("Schedule").child(push).setValue(addSchedule1);
                                     Toast.makeText(getApplicationContext(),"Schedule created.", Toast.LENGTH_LONG).show();
                                     pd.dismiss();
-                                    recreate();
-                                    startActivity(new Intent(AddSchedule.this , ScheduleList.class));
+                                    //recreate();
+                                    //startActivity(new Intent(AddSchedule.this , ScheduleList.class));
                                 } else {
                                     i = 0;
                                     ScheduleAttr addSchedule1 = new ScheduleAttr();
@@ -136,8 +136,8 @@ public class AddSchedule extends BaseActivity {
                                     reference.child("Schedule").child(push).setValue(addSchedule1);
                                     Toast.makeText(getApplicationContext(),"Schedule created.", Toast.LENGTH_LONG).show();
                                     pd.dismiss();
-                                    recreate();
-                                    startActivity(new Intent(AddSchedule.this , ScheduleList.class));
+                                    //recreate();
+                                   // startActivity(new Intent(AddSchedule.this , ScheduleList.class));
                                 }
 
                             }

@@ -64,17 +64,18 @@
             android:hint="00:00"
             android:inputType="time"
             android:maxLength="5" />
+        <Button
+            android:id="@+id/btnAddSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add schedule" />
 
         <CalendarView
             android:id="@+id/calender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/btnAddSchedule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add schedule" />
+
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -1,17 +1,19 @@
 package com.example.addinfoinpsl;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -49,8 +51,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference databaseReference = firebaseDatabase.getReference();
                     databaseReference.child("Schedule").child(id).child("status").setValue("Not Live");
-                }
-                else {
+                } else {
                     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference databaseReference = firebaseDatabase.getReference();
                     databaseReference.child("Schedule").child(id).child("status").setValue("Live");
@@ -60,29 +61,37 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(activity , UpdateSchedule.class);
-                i.putExtra("id" , id);
+                Intent i = new Intent(activity, UpdateSchedule.class);
+                i.putExtra("id", id);
                 activity.startActivity(i);
             }
         });
+//        holder.img.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
+//                alertDialogBuilder.setMessage("Are you sure to match?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//                        DatabaseReference databaseReference = firebaseDatabase.getReference();
+//                        databaseReference.child("Schedule").child(id).setValue(null);
+//                        dialog.dismiss();
+//                    }
+//                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                }).show();
+//            }
+//        });
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
-                alertDialogBuilder.setMessage("Are you sure to delete match?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference();
-                        databaseReference.child("Schedule").child(id).setValue(null);
-                        dialog.dismiss();
-                    }
-                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }).show();
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference databaseReference = firebaseDatabase.getReference();
+                databaseReference.child("Schedule").child(id).child("winner").setValue("Completed");
             }
         });
 
@@ -95,7 +104,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView img,edit;
+        ImageView img, edit;
         TextView team1, team2, live;
 
         public ViewHolder(@NonNull View itemView) {

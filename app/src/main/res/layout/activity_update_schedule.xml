@@ -60,15 +60,16 @@
             android:maxLength="5"
             android:inputType="time"
             android:hint="00:00"/>
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/calender"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Update schedule"
             android:id="@+id/btnAddSchedule"/>
+        <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/calender"/>
+
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
